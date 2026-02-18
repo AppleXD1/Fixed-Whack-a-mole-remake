@@ -66,6 +66,7 @@ public class MoleScript : MonoBehaviour
             //Makes mole go up
             animator.SetBool("isGoingDown", false);
             animator.SetBool("isGoingUp", true);
+            isUp = true;
            
             
 
@@ -77,6 +78,7 @@ public class MoleScript : MonoBehaviour
             //Makes mole go back down after a while
             animator.SetBool("isGoingUp", false);
             animator.SetBool("isGoingDown", true);
+            isUp = false;
             
 
             Debug.Log("Mole is going down after: " + randomTime);
@@ -93,8 +95,12 @@ public class MoleScript : MonoBehaviour
 
         //Adds a point to score
       
+        if(isUp)
+        {
             scoreScript.AddPoint();
             isUp = false;
+        }
+            
         
         
 
